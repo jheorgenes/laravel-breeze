@@ -8,6 +8,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/nova_pagina_publica', [MainController::class, 'nova_pagina_publica'])->name('nova_pagina_publica');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -21,6 +23,7 @@ Route::middleware('auth')->group(function () {
 // Nossas rotas
 Route::middleware(['auth'])->group(function(){
     Route::get('/nova-pagina', [MainController::class, 'nova_pagina'])->name('nova_pagina');
+    Route::get('/testes', [MainController::class, 'testes'])->name('testes');
 });
 
 require __DIR__.'/auth.php';
